@@ -19,7 +19,7 @@
 | **Candidate Name** | **Garvit Sharma** |
 | **Roll Number** | **2301730190** |
 | **Email Address** | [garvitsharma8909@gmail.com](mailto:garvitsharma8909@gmail.com) |
-| **GitHub Repository** | [https://github.com/nikukaushik001/Devops-Capstone-Project](https://github.com/nikukaushik001/Devops-Capstone-Project) |
+| **GitHub Repository** | [https://github.com/Garvit7878/DevOps-Capstone-Project-](https://github.com/Garvit7878/DevOps-Capstone-Project-) |
 | **Assessment Scope** | End-to-End DevOps Automation Platform |
 | **Primary Report PDF**| [📄 Capstone_DevOps_Platform_Report.pdf](docs/deliverables/Capstone_DevOps_Platform_Report.pdf) |
 
