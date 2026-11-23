@@ -51,27 +51,25 @@
 
 ```mermaid
 flowchart LR
-    subgraph DEV["🧑‍💻 Developer"]
-        A[Code Commit]
+    subgraph DEV["Developer"]
+        A["Code Commit"]
     end
 
-    subgraph CI["⚙️ CI Pipeline"]
-        B[Lint & SAST] --> C[Test & Coverage] --> D[Docker Build] --> E[Trivy CVE Scan]
+    subgraph CI["CI Pipeline"]
+        B["Lint & SAST"] --> C["Test & Coverage"] --> D["Docker Build"] --> E["Trivy Scan"]
     end
 
-    subgraph CD["🚀 CD & GitOps"]
-        F[Push to Registry] --> G[ArgoCD Sync]
+    subgraph CD["CD & GitOps"]
+        F["Registry Push"] --> G["ArgoCD Sync"]
     end
 
-    subgraph PROD["☁️ Production"]
-        H[Kubernetes EKS]
-        I[Canary Rollout]
-        J[Monitoring]
+    subgraph PROD["Production"]
+        H["EKS Cluster"] --> I["Canary Rollout"] --> J["Monitoring"]
     end
 
     A --> B
     E --> F
-    G --> H --> I --> J
+    G --> H
 ```
 
 ---
@@ -79,32 +77,25 @@ flowchart LR
 ## 🔄 End-to-End CI/CD Pipeline Flow
 
 ```mermaid
-flowchart TD
-    DEV["👨‍💻 Developer Commit"] --> PR["Git Pull Request to main"]
+flowchart LR
+    DEV["Developer\nCommit"] --> PR["Pull\nRequest"]
 
-    subgraph GATES["🔒 6-Gate Quality Pipeline — GitHub Actions"]
-        PR --> G1["🔍 Gate 1: Flake8 Static Analysis — PEP8 Compliance"]
-        G1 --> G2["🛡️ Gate 2: Bandit SAST — Security Vulnerability Screening"]
-        G2 --> G3["🧪 Gate 3: PyTest — Unit & Integration Tests"]
-        G3 --> G4["📊 Gate 4: Coverage Enforcement ≥ 85%"]
-        G4 --> G5["🐳 Gate 5: Multi-Stage Docker Build — Non-Root Hardened"]
-        G5 --> G6["🔎 Gate 6: Aqua Trivy — HIGH/CRITICAL CVE Blocking"]
-    end
+    PR --> G1["Flake8\nLinting"]
+    G1 --> G2["Bandit\nSAST"]
+    G2 --> G3["PyTest\nSuite"]
+    G3 --> G4["Coverage\n≥ 85%"]
+    G4 --> G5["Docker\nBuild"]
+    G5 --> G6["Trivy\nCVE Scan"]
 
-    G6 --> REG["📦 Container Registry — ghcr.io"]
-    REG --> GITOPS["🔄 GitOps Tag Update — Kustomize Overlay"]
-    GITOPS --> ARGO["🎯 ArgoCD In-Cluster Controller"]
-
-    subgraph DEPLOY["☁️ Production — AWS EKS Cluster"]
-        ARGO --> INGRESS["🌐 NGINX Ingress Controller"]
-        INGRESS --> CANARY["🐤 Argo Rollouts Canary Controller"]
-        CANARY -- "10% → 25% → 50% → 100%" --> PODS["🟢 Application Pods"]
-    end
-
-    PODS --> PROM["📈 Prometheus Metrics Scraper — 15s Interval"]
-    PROM --> GRAF["📊 Grafana Dashboard & Alert Rules"]
-    GRAF -- "SLA Breach > 1.5% Error" --> ROLLBACK["⏪ Automated Canary Rollback"]
+    G6 --> REG["Container\nRegistry"]
+    REG --> ARGO["ArgoCD\nSync"]
+    ARGO --> EKS["Kubernetes\nEKS"]
+    EKS --> CANARY["Canary\nRollout"]
+    CANARY --> PROM["Prometheus\nMetrics"]
+    PROM --> GRAF["Grafana\nAlerts"]
 ```
+
+> **Pipeline Gates:** `Commit` → `Flake8 PEP8` → `Bandit SAST` → `PyTest + Coverage ≥85%` → `Docker Multi-Stage Build` → `Trivy CVE Block` → `Registry` → `ArgoCD GitOps` → `Canary Deploy` → `Prometheus Monitoring`
 
 ---
 
