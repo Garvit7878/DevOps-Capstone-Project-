@@ -22,14 +22,28 @@
 
 ## 👨‍💻 Candidate & Project Metadata
 
-| Attribute | Details |
-| :--- | :--- |
-| **Candidate Name** | **Garvit Sharma** |
-| **Roll Number** | **2301730190** |
-| **Email Address** | [garvitsharma8909@gmail.com](mailto:garvitsharma8909@gmail.com) |
-| **GitHub Repository** | [https://github.com/Garvit7878/DevOps-Capstone-Project-](https://github.com/Garvit7878/DevOps-Capstone-Project-) |
-| **Assessment Scope** | End-to-End DevOps Automation Platform |
-| **Primary Report PDF** | [📄 Capstone_DevOps_Platform_Report.pdf](docs/deliverables/Capstone_DevOps_Platform_Report.pdf) |
+<table>
+  <tr>
+    <td><b>🧑‍🎓 Candidate</b></td>
+    <td><b>Garvit Sharma</b></td>
+    <td><b>🎓 Roll Number</b></td>
+    <td><b>2301730190</b></td>
+  </tr>
+  <tr>
+    <td><b>📧 Email</b></td>
+    <td><a href="mailto:garvitsharma8909@gmail.com">garvitsharma8909@gmail.com</a></td>
+    <td><b>🎯 Scope</b></td>
+    <td>End-to-End DevOps Automation</td>
+  </tr>
+  <tr>
+    <td><b>🔗 Repository</b></td>
+    <td colspan="3"><a href="https://github.com/Garvit7878/DevOps-Capstone-Project-">github.com/Garvit7878/DevOps-Capstone-Project-</a></td>
+  </tr>
+  <tr>
+    <td><b>📄 Report</b></td>
+    <td colspan="3"><a href="docs/deliverables/Capstone_DevOps_Platform_Report.pdf">📥 Capstone_DevOps_Platform_Report.pdf</a></td>
+  </tr>
+</table>
 
 ---
 
